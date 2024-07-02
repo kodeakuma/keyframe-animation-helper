@@ -1,0 +1,53 @@
+{
+	"name": "keyframe-animation-helper",
+	"version": "0.0.1",
+	"private": true,
+	"scripts": {
+		"prepare": "svelte-kit sync",
+		"preview": "vite preview",
+		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
+		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
+		"lint": "prettier --check . && eslint .",
+		"format": "prettier --write .",
+		"start": "npm run dev",
+		"dev": "concurrently \"vite dev\" \"cross-env NODE_ENV=development nw .\"",
+		"build": "npm run build:web && node build.js",
+		"build:web": "vite build",
+		"icons": "cd resources && npx png2icons ../static/favicon.png icon -allwe -bc",
+		"postinstall": "npx base-volta-off-of-nwjs@latest"
+	},
+	"devDependencies": {
+		"@sveltejs/adapter-static": "^3.0.0",
+		"@sveltejs/kit": "^2.0.0",
+		"@sveltejs/vite-plugin-svelte": "^3.0.0",
+		"@types/eslint": "^8.56.7",
+		"@types/nw.js": "^0.13.21",
+		"concurrently": "^8.2.2",
+		"copy-production-deps": "^0.2.2",
+		"cross-env": "^7.0.3",
+		"eslint": "^9.0.0",
+		"eslint-config-prettier": "^9.1.0",
+		"eslint-plugin-svelte": "^2.36.0",
+		"globals": "^15.0.0",
+		"nw": "^0.89.0",
+		"nw-builder": "^4.7.5",
+		"prettier": "^3.1.1",
+		"prettier-plugin-svelte": "^3.1.2",
+		"svelte": "^5.0.0-next.1",
+		"svelte-check": "^3.6.0",
+		"tslib": "^2.4.1",
+		"typescript": "^5.0.0",
+		"typescript-eslint": "^8.0.0-alpha.20",
+		"vite": "^5.0.3"
+	},
+	"type": "module",
+	"node-remote": "http://localhost:*",
+	"main": "serve.js",
+	"volta": {
+		"node": "22.2.0"
+	},
+	"dependencies": {
+		"node-static": "^0.7.11",
+		"portfinder": "^1.0.32"
+	}
+}
